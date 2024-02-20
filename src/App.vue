@@ -1,22 +1,16 @@
 <template>
-  <div>
-    
-  </div>
+  <div></div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 // import { ref } from 'vue'
-let fun = () => 
 
-{
-  console.log('fun')
+let hello = () => {
+  console.log('Hello World')
 }
 
-fun();
-
+hello()
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
