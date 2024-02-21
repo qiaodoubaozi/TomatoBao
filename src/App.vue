@@ -27,17 +27,13 @@
 
 <script setup lang="ts">
 // import { ref } from 'vue'
-import request from '@/utils/request'
+import { login } from '@/api/user'
 import { onMounted } from 'vue'
+// import request from '@/utils/request'
 
 onMounted(() => {
-  request({
-    url: '/api/post',
-    method: 'post',
-    data: 'qiaodoubaozi'
-  }).then((res) => {
-    console.log(res)
-  });
+  // const res = login({ username: 'admin', password: '123456' })
+  login({ username: 'admin',password: '123456'})
 })
 
 </script>
