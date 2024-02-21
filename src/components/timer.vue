@@ -6,9 +6,10 @@
     </el-col>
     <el-col :span="8">
       <el-countdown
-        title="Remaining VIP time"
         format="HH:mm:ss"
         :value="value1"
+        :finish="(value:any) => console.log('test')"
+        value-style="color: #f56c6c; font-size: 40px;"
       />
       <el-button class="countdown-footer" type="primary" @click="reset">
         Reset
@@ -18,9 +19,6 @@
       <el-countdown format="DD [days] HH:mm:ss" :value="value2">
         <template #title>
           <div style="display: inline-flex; align-items: center">
-            <el-icon style="margin-right: 4px" :size="12">
-              <Calendar />
-            </el-icon>
             Still to go until next month
           </div>
         </template>
@@ -35,12 +33,13 @@ import { ref } from "vue"
 import dayjs from "dayjs"
 
 const value = ref(Date.now() + 1000 * 60 * 60 * 7)
-const value1 = ref(Date.now() + 1000 * 60 * 60 * 24 * 2)
+const value1 = ref(0)
 const value2 = ref(dayjs().add(1, "month").startOf("month"))
 
 function reset() {
-  value1.value = Date.now() + 1000 * 60 * 60 * 24 * 2
+  value1.value = Date.now() + 5000
 }
+
 </script>
 
 <style scoped>

@@ -3,9 +3,11 @@
     <div class="container">
       <div class="item-container">
         <el-row>
-          <el-col :span="4" />
-          <el-col :span="16" class="timer-container">
-            <el-card></el-card>
+          <el-col :span="4" :xs="0"/>
+          <el-col :span="16" class="timer-container" :xs="24">
+            <el-card>
+              <timer />
+            </el-card>
           </el-col>
         </el-row>
       </div>
@@ -21,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import timer from "@/components/timer.vue"
 // import { ref } from "vue"
 </script>
 
