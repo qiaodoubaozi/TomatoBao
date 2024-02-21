@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable no-unused-vars */
 import request from "@/utils/request"
 import { loginForm, loginResult, userInfoResult} from "./type"
 

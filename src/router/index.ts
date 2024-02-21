@@ -13,6 +13,16 @@ const router = createRouter({
       name: "home",
       component: () => import("@/views/homePage.vue"),
     },
+    {
+      path: "/404",
+      name: "404",
+      component: () => import("@/views/404Page.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      redirect: "/404",
+    },
   ],
 })
 

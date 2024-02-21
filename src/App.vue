@@ -1,12 +1,12 @@
 <template>
   <div>
-    <login></login>
+    <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
 // import { ref } from "vue"
-import login from "@/views/login.vue"
+
 
 </script>
 
