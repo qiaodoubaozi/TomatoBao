@@ -22,7 +22,7 @@ export default [
     method: "get",
     response: ({ query }) => {
       console.log(query)
-      return { code: 200, data: 'hello world!' }
+      return { code: 200, data: "hello world!" }
     },
   },
   {

@@ -1,15 +1,13 @@
 <template>
   <div>
-    <login></login>
   </div>
 </template>
 
 <script setup lang="ts">
 // import { ref } from "vue"
-import login from "@/views/login.vue"
 
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>
