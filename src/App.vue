@@ -19,17 +19,33 @@
       <el-alert title="warning alert" type="warning" show-icon />
       <el-alert title="测试" type="error" show-icon />
     </div>
+    <div>
+      <h1>test for scss</h1>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 // import { ref } from 'vue'
+import request from '@/utils/request'
+import { onMounted } from 'vue'
 
-let hello = () => {
-  console.log("Hello World")
-}
+onMounted(() => {
+  request({
+    url: '/api/post',
+    method: 'post',
+    data: 'qiaodoubaozi'
+  }).then((res) => {
+    console.log(res)
+  });
+})
 
-hello()
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+div {
+  h1 {
+    color: $color;
+  }
+}
+</style>
