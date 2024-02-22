@@ -1,45 +1,69 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <el-row>
-    <el-col :span="8">
-      <el-countdown title="Start to grab" :value="value" />
-    </el-col>
-    <el-col :span="8">
-      <el-countdown
-        format="HH:mm:ss"
-        :value="value1"
-        :finish="(value:any) => console.log('test')"
-        value-style="color: #f56c6c; font-size: 40px;"
-      />
-      <el-button class="countdown-footer" type="primary" @click="reset">
-        Reset
-      </el-button>
-    </el-col>
-    <el-col :span="8">
-      <el-countdown format="DD [days] HH:mm:ss" :value="value2">
-        <template #title>
-          <div style="display: inline-flex; align-items: center">
-            Still to go until next month
-          </div>
-        </template>
-      </el-countdown>
-      <div class="countdown-footer">{{ value2.format("YYYY-MM-DD") }}</div>
-    </el-col>
-  </el-row>
+  <div>
+    <el-row>
+      <el-col :span="8"></el-col>
+      <el-col :span="8">
+        <el-button type="primary" @click="reset">
+          Reset
+        </el-button>
+      </el-col>
+      <el-col :span="8"></el-col>
+    </el-row>
+
+    <el-row style="margin-top: 20px;">
+      <el-col :span="8"></el-col>
+      <el-col :span="2">
+        <el-text>番茄时长：</el-text>
+      </el-col>
+      <el-col :span="2">
+        <el-input v-model="tomatoTime" size="small"></el-input>
+      </el-col>
+      <el-col :span="2">
+        <el-text>休息时长：</el-text>
+      </el-col>
+      <el-col :span="2">
+        <el-input v-model="breakTime" size="small"></el-input>
+      </el-col>
+      <el-col :span="8"></el-col>
+    </el-row>
+
+    <el-row style="margin-top: 10px;">
+      <el-col :span="8"></el-col>
+      <el-col :span="8">
+        <el-progress
+          :percentage="percentage"
+          :text-inside="true"
+          :stroke-width="20"
+          status="exception"
+          striped
+          striped-flow
+          :duration="duration"
+        >
+          <span>{{ progressContent }}</span>
+        </el-progress>
+        <el-button class="countdown-footer" type="primary" @click="reset">
+          Reset
+        </el-button>
+      </el-col>
+      <el-col :span="8"></el-col>
+    </el-row>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue"
-import dayjs from "dayjs"
 
-const value = ref(Date.now() + 1000 * 60 * 60 * 7)
 const value1 = ref(0)
-const value2 = ref(dayjs().add(1, "month").startOf("month"))
+const percentage = ref(40)
+const duration = ref(10)
+const progressContent = ref(`剩余${duration.value}秒`)
+const tomatoTime = ref(25)
+const breakTime = ref(5)
 
 function reset() {
   value1.value = Date.now() + 5000
 }
-
 </script>
 
 <style scoped>

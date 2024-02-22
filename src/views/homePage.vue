@@ -3,7 +3,7 @@
     <div class="container">
       <div class="item-container">
         <el-row>
-          <el-col :span="4" :xs="0"/>
+          <el-col :span="4" :xs="0" />
           <el-col :span="16" class="timer-container" :xs="24">
             <el-card>
               <timer />
@@ -16,8 +16,13 @@
         <h1 style="color: #ef4015; font-size: 2vh">===番茄包===</h1>
       </div>
     </div>
-    <div class="footer">
-      <div class="content-container"></div>
+
+    <div class="common-layout" style="height:40vh">
+      <el-container>
+        <el-header>Header</el-header>
+        <el-main>Main</el-main>
+        <el-footer>Footer</el-footer>
+      </el-container>
     </div>
   </div>
 </template>
@@ -29,11 +34,13 @@ import timer from "@/components/timer.vue"
 
 <style scoped lang="scss">
 .container {
+  position: relative;
+  top: 20vh;
   height: 100vh;
   background-color: #fff;
   .item-container {
     z-index: 1;
-    height: 80vh;
+    height: 60vh;
     background-color: #fff;
     position: sticky;
     top: 0;
